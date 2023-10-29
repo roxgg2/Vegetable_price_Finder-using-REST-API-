@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vegetable and Fruit Price Finder App by Rohit</title>
+    <style>
+        * {font-size: 40px;}
+        body {background-color: lightblue;}
+    </style>
+    <script>
+        function check() {
+            var fruitInput = document.querySelector("input[name='fruit']");
+            var fruitName = fruitInput.value.trim();
+
+            if (fruitName === "") {
+                alert("Empty name is not allowed");
+                fruitName.innerHTML="";
+                fruitName.focus();
+                return false;
+            }
+
+            if (!isNaN(fruitName)) {
+                alert("Numbers are not allowed in fruit name");
+                fruitName.innerHTML="";
+                fruitName.focus();
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+    
+</head>
+<body>
+    <center>
+        <h1>Price Finder</h1>
+        <form method="get" onsubmit="return check()">
+            <input type="text" name="fruit" placeholder="Enter Fruit Name">
+            <input type="submit" value="Get Price" name="btn">
+        </form>
+        {% if name and price %}
+            <h2>The price of {{ name }} is Rs.{{ price }}</h2>
+        {% endif %}
+    </center>
+</body>
+</html>
